@@ -1,0 +1,208 @@
+/* =========================================================
+   estilos.css · CSS global de la web (todas las páginas)
+   Tarea #2 · Colores, tipografías, espaciados, cabecera,
+   menú, pie y botones. El responsive específico es la #4.
+   ========================================================= */
+
+/* ---------- 1. Variables (colores, tipografías, espaciados) ---------- */
+:root {
+  /* Colores */
+  --color-fondo: #1b2838;
+  --color-superficie: #16202d;
+  --color-superficie-2: #2a475e;
+  --color-texto: #c7d5e0;
+  --color-texto-suave: #8f98a0;
+  --color-titulo: #ffffff;
+  --color-acento: #66c0f4;
+  --color-acento-oscuro: #417a9b;
+  --color-borde: #3a5169;
+
+  /* Tipografías */
+  --fuente-texto: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fuente-titulos: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --tam-base: 1rem;
+  --tam-h1: 2rem;
+  --tam-h2: 1.5rem;
+  --tam-h3: 1.25rem;
+
+  /* Espaciados */
+  --espacio-xs: 0.25rem;
+  --espacio-s: 0.5rem;
+  --espacio-m: 1rem;
+  --espacio-l: 1.5rem;
+  --espacio-xl: 2.5rem;
+
+  /* Otros */
+  --radio: 6px;
+  --ancho-max: 1100px;
+  --sombra: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: var(--tam-base);
+  line-height: 1.6;
+}
+
+main {
+  flex: 1;
+  padding-top: var(--espacio-l);
+  padding-bottom: var(--espacio-xl);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- 3. Tipografía ---------- */
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  color: var(--color-titulo);
+  line-height: 1.2;
+  margin: 0 0 var(--espacio-m);
+}
+h1 { font-size: var(--tam-h1); }
+h2 { font-size: var(--tam-h2); }
+h3 { font-size: var(--tam-h3); }
+
+p {
+  margin: 0 0 var(--espacio-m);
+}
+
+a {
+  color: var(--color-acento);
+  text-decoration: none;
+}
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+/* ---------- 4. Contenedor común ---------- */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 var(--espacio-m);
+}
+
+/* ---------- 5. Cabecera ---------- */
+.cabecera {
+  background: var(--color-superficie);
+  border-bottom: 2px solid var(--color-acento-oscuro);
+  box-shadow: var(--sombra);
+}
+
+.cabecera .contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espacio-s) var(--espacio-l);
+  padding-top: var(--espacio-m);
+  padding-bottom: var(--espacio-m);
+}
+
+.logo {
+  color: var(--color-titulo);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.logo:hover {
+  color: var(--color-acento);
+  text-decoration: none;
+}
+
+/* ---------- 6. Menú de navegación ---------- */
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-s);
+}
+
+.menu a {
+  display: block;
+  padding: var(--espacio-s) var(--espacio-m);
+  border-radius: var(--radio);
+  color: var(--color-texto);
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  background: var(--color-superficie-2);
+  color: var(--color-titulo);
+  text-decoration: none;
+}
+
+.menu a.activo {
+  background: var(--color-acento);
+  color: var(--color-fondo);
+  font-weight: 700;
+}
+
+/* ---------- 7. Pie ---------- */
+.pie {
+  background: var(--color-superficie);
+  border-top: 1px solid var(--color-borde);
+  color: var(--color-texto-suave);
+  text-align: center;
+  font-size: 0.9rem;
+  padding: var(--espacio-l) 0;
+}
+.pie p {
+  margin: 0;
+}
+
+/* ---------- 8. Botones (clase .btn) ---------- */
+.btn {
+  display: inline-block;
+  padding: var(--espacio-s) var(--espacio-l);
+  border: none;
+  border-radius: var(--radio);
+  background: var(--color-acento);
+  color: var(--color-fondo);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn:hover,
+.btn:focus-visible {
+  background: #8fd3ff;
+  text-decoration: none;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-secundario {
+  background: transparent;
+  border: 2px solid var(--color-acento);
+  color: var(--color-acento);
+}
+.btn-secundario:hover,
+.btn-secundario:focus-visible {
+  background: var(--color-acento);
+  color: var(--color-fondo);
+}
